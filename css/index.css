@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#formularioContainer{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#formularioContainer *{
+
+    width: 80%;
+    margin: 5px 30px 5px 30px;
+}
+
+#title{
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+}
+
+#subtitle{
+    font-family: Helvetica, sans-serif;
+}
+
+#subtitle2{
+    font-family: Helvetica, sans-serif;
+}

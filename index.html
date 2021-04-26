@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Práctica 10</title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+
+    <body>
+        <div id="formularioContainer">
+            <h1 id="title">Lapsus Napoleón Franco</h1>
+            <button id="candidatosBtn">Ver candidatos</button>
+            <button id="votacionesBtn">Ver votaciones</button>
+            <h3 id="subtitle">Regístre el candidato para la encuesta</h3>
+            
+            <input id="id1" placeholder="ID" type="text">
+            <input id="nombre" placeholder="Nombre" type="text">
+            <button id="registrarBtn">Registrar</button>
+
+            <h3 id="subtitle2">Vota por el candidato usando su ID</h3>
+            
+            <input id="id2" placeholder="ID" type="text">
+            <button id="votarBtn">Votar</button>
+
+        </div>
+    </body>
+
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/8.4.2/firebase.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCEP-JOckMhYhJjWTbcwfhSLjZwVgE7hGI",
+    authDomain: "practica10eco.firebaseapp.com",
+    databaseURL: "https://practica10eco-default-rtdb.firebaseio.com",
+    projectId: "practica10eco",
+    storageBucket: "practica10eco.appspot.com",
+    messagingSenderId: "999053288933",
+    appId: "1:999053288933:web:e16dd540df390e4f3f7b0c",
+    measurementId: "G-MT5CB9S6ZP"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="js/index.js"></script>
