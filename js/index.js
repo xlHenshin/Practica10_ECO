@@ -19,7 +19,7 @@ verCandidatos = ()=>{
             function(candidato){
                 let clave = candidato.key;
                 let valor = candidato.val();
-                alert("ID: "+valor.identificacion+"="+valor.nombre+"\n")
+                alert("Información candidato: "+"ID: "+valor.identificacion+"="+valor.nombre+"\n");
             }
         );
 
@@ -29,7 +29,20 @@ verCandidatos = ()=>{
 candidatosBtn.addEventListener('click', verCandidatos);
 
 verVotaciones = ()=>{
-    alert("verVotaciones");
+    
+    database.ref('votos').on('value',function(data){
+
+        data.forEach(
+
+            function(voto){
+                let clave = voto.key;
+                let valor = candidato.val(fecha);
+                alert("Candidato"+clave+" = "+valor+"\n");
+            }
+
+        )
+
+    });
 }
 
 votacionesBtn.addEventListener('click', verVotaciones);
@@ -49,9 +62,8 @@ registrar = ()=>{
         nombre: n
     };
 
-    
-
     database.ref('candidatos/'+id).set(objetoCandidato);
+    alert("Candidato registrado. ID: "+id+", Nombre: "+n);
 }
 
 registrarBtn.addEventListener('click', registrar);
@@ -62,21 +74,17 @@ votar = ()=>{
     const fecha = Date.now();
     const fechaactual = new Date(fecha);
 
-    fechaactual.toDateString;
-
-    alert(fechaactual);
+    let fechastring = fechaactual.toDateString();
 
     if(idvotar=== ''){
         alert('Ingrese el ID del candidato')
         return;
     }
 
-    let objetoVoto = {
-        identificacion: idvotar,
-        fecha: fechaactual
-    };
+    let objetoVoto = {fecha: fechastring};
 
-    database.ref('votos/'+idvotar).set(objetoVoto);
+    database.ref('votos/'+idvotar).push().set(objetoVoto);
+    alert("Voto realizado. ID del candidato= "+idvotar);
 }
 
 votarBtn.addEventListener('click', votar);
